@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<ol class="breadcrumb">
+				<li class="active">首页</li>
+			</ol>
+
+		</div>
+		<div class="container">
+			<div class="c_header clearfix">
+				<div class="col-md-6 hpot"><img src="img/g.jpg"/></div>
+				<div class="col-md-6 uname">eagle</div>
+				<div class="col-md-6">努力着，被需要</div>
+			</div>
+			<div class="col-md-3 left">
+				<div class="f_header">
+					<h2>好友</h2>
+				</div>
+				<div class="list-group" id="f_list">
+				  <a href="#" class="list-group-item" ruser="1">烧烤</a>
+				  <a href="#" class="list-group-item" ruser="2">鱼香肉丝</a>
+				  <a href="#" class="list-group-item" ruser="3">麻婆豆腐</a>
+				  <a href="#" class="list-group-item" ruser="4">夫妻肺片</a>
+				  <a href="#" class="list-group-item" ruser="5">夫妻肺片</a>
+				</div>
+			</div>
+			<div class="col-md-8 right" id="comunicate">
+				<div class="container">
+					<div class="r_header clearfix">
+						<h2>好友</h2>
+						<div class="btn-group">
+							<button class="btn btn-default" id="close">关闭</button>
+						</div>
+					</div>
+					<div class="r_body">
+						<!--对话内容 s-->
+						<div class="user clearfix">
+							<div class="pot"><img src="img/g.jpg"/></div>
+							<div class="msg">hhhhhhhhasdasdddddd dddddddddddd ddddq wsacda sd sd adwq dad dw dwqsad dw</div>
+						</div>
+						<div class="my clearfix">
+							<div class="pot"><img src="img/g.jpg"/></div>
+							<div class="msg">hhhhhhh</div>
+						</div>
+						<div class="my clearfix">
+							<div class="pot"><img src="img/g.jpg"/></div>
+							<div class="msg">hhhhhhh</div>
+						</div>
+						<div class="user clearfix">
+							<div class="pot"><img src="img/g.jpg"/></div>
+							<div class="msg">hhhhhhhhasdasdddddd dddddddddddd ddddq wsacda sd sd adwq dad dw dwqsad dw</div>
+						</div>
+					</div>
+					<div class="r_footer">
+						<div class="input-group">
+							<input type="text" class="form-control" />
+							<div class="input-group-btn">
+								<button class="btn btn-default" type="button">发送</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#comunicate').fadeOut();
+		$('#f_list a').each(function(index){
+			$(this).click(function(){
+				var r_id=$('#f_list a').eq(index).attr('ruser');
+				$('#comunicate').fadeIn();
+				
+			});
+		});
+		$('#close').click(function(){
+			$('#comunicate').fadeOut();
+		})
+	});
+		
+		
+	</script>
+	</body>
+</html>

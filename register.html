@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<ol class="breadcrumb">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="login.html">登录</a></li>
+				<li class="active">注册</li>
+			</ol>
+			<div class="head_brand">
+					<h1>eagle</h1> 
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				<form action="" method="post" enctype="multipart/form-data" onsubmit="return reCheck()">
+					<div class="form-group">
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group">
+									<div class="input-group-addon">@</div>
+									<input type="text" name="user" id="" class="form-control user" placeholder="用户名"/>
+								</div>
+							</div>
+							<div class="col-md-4 error">
+								<span class="text-danger" id="error1"></span>
+							</div>
+						</div>
+
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group">
+									<div class="input-group-addon">@</div>
+									<input type="password" name="password" id="" class="form-control pwd" placeholder="密码"/>
+								</div>
+							</div>
+							<div class="col-md-4 error">
+								<span class="text-danger" id="error2"></span>
+							</div>
+						</div>
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group">
+									<div class="input-group-addon">@</div>
+									<input type="password" name="repassword" id="" class="form-control repwd" placeholder="确认密码"/>
+								</div>
+							</div>
+							<div class="col-md-4 error">
+								<span class="text-danger" id="error3"></span>
+							</div>
+						</div>
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group">
+									<div class="input-group-addon">性别</div>
+									<input type="radio" name="sex" id="sex" value="0" />男
+									<input type="radio" name="sex" id="sex" value="1" />女
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group">
+									<div class="input-group-addon">头像</div>
+									<input type="file" name="hpot" id="hpot" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="col-md-8 int">
+								<div class="input-group btn-sub">
+           							<button type="submit" class="btn btn-default">注册</button>
+        						</div>
+        					</div>
+        				</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script src="js/register.js"></script>
+	</body>
+</html>

@@ -1,0 +1,166 @@
+body{
+	background: #CCCCCC;
+}
+.head_brand h1{
+	text-align: center;
+}
+.header a{
+	font-size: 1.3em;
+}
+.content .container{
+	width: 100%;
+	padding-left:0 ;
+	text-align: center;
+}
+.content .form-group{
+	width: 30%;
+	margin: 0 auto;
+}
+.content .input-group{
+	width: 100%;
+	margin: 15px 0;
+}
+.content .btn{
+	width: 60%;
+	background: #31708F;
+}
+.content .login{
+	width: 50%;
+}
+.btn-sub a{
+	margin: 10px;
+}
+.content .int{
+	padding: 0;
+}
+.content .error{
+	padding: 18px 0;
+	font-size: 16px;
+}
+/*聊天内容*/
+.left{
+	border:1px solid #333;
+	padding: 0;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 420px;
+	background: #3C3C3C;
+	overflow-y: auto;	
+}
+.right{
+	border: 1px solid #333;
+	
+}
+.c_header{
+	width: 33.3%;
+	margin: 5px 0;
+}
+.c_header .col-md-6{
+	padding: 0;
+	margin: 0 8px 4px auto;
+}
+.hpot{
+	width: 80px;
+	height: 80px;
+}
+.hpot img{
+	width: 100%;
+	height: 100%;
+}
+.uname{
+	height: 60px;
+	font-size: 20px;
+	line-height: 60px;
+}
+.list-group{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.f_header{
+	background: #333333;
+	color: #F5F5F5;
+	text-align: center;
+}
+.f_header h2{
+	margin: 0;
+}
+.right{
+	padding: 0;
+	border-radius:10px ;
+	overflow: hidden;
+	margin-left:15px ;
+	height: 420px;
+}
+.right .container{
+	width: 100%;
+	padding: 0;
+}
+.r_header{
+	background: #333333;
+	color: #F5F5F5;
+	text-align: center;
+}
+.r_body{
+	background: rgba(0,0,0,0.2);
+	height: 340px;
+	overflow-y: auto;
+}
+.r_footer{
+	background: #8C8C8C;
+	height: 45px;
+}
+.r_header h2{
+	margin: 0;
+	width: 86%;
+	float: left;
+}
+.r_header .btn-group{
+	width: 10%;
+	float: right;
+}
+.r_header .btn{
+	width: 90%;
+	background: #2d2c2c;
+	border: 1px solid #000;
+	color: #fff;
+}
+.r_body .pot{
+	width: 60px;
+	overflow: hidden;
+	height: 60px;
+	border-radius: 30px;
+}
+.r_body img{
+	width: 100%;
+	height: 100%;
+}
+.r_body .msg{
+	width: 60%;
+	min-height: 60px;
+	border: 1px solid #C0C0C0;
+	background: #fff;
+}
+.r_body .user{
+	width: 98%;
+	margin: 10px 2px;
+}
+.user .pot,.user .msg{
+	float: left;
+	margin: 4px;
+}
+.r_body .my{
+	width: 98%;
+	margin: 10px 2px;
+}
+.my .pot,.my .msg{
+	float: right;
+	margin: 4px;
+}
+.r_footer{
+	padding: 6px;
+}
+.r_footer .input-group{
+	width: 90%;
+	margin: 0 auto;
+}
