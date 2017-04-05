@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="view/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="view/css/main.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<ol class="breadcrumb">
+				<li class="active">首页</li>
+			</ol>
+		</div>
+		<div class="container">
+			<!-- 用户信息 -->
+			<div class="c_header clearfix">
+				<div class="col-md-6 hpot"><img src="<?php echo $userRow['hpot'] ?>"/></div>
+				<div class="col-md-6 uname"><?php echo $userRow['username'] ?></div>
+				<div class="col-md-6">
+				<?php
+					echo $userRow['sign'] != ''?$userRow['sign']:'该好友很懒，什么都没留下~~~'
+				 ?>	
+				</div>
+			</div>
+			<div class="col-md-3 left">
+				<div class="f_header">
+					<h2>好友</h2>
+				</div>
+				<div class="list-group" id="f_list">
+				<!-- 好友列表 -->
+				<?php foreach($friend as $v){ ?>
+				  <a href="#" class="list-group-item" ruser="<?php echo $v['ruser_id']?>" 
+				   hpot="<?php echo $v['hpot'] ?>"><?php echo $v['username'] ?></a>
+				<?php } ?>
+				</div>
+			</div>
+			<div class="col-md-8 right" id="comunicate">
+				<!-- 对话框 s -->
+				<div class="container">
+					<!--对话框头部  -->
+					<div class="r_header clearfix">
+						<h2 id="friend">好友</h2>
+						<div class="btn-group">
+							<button class="btn btn-default" id="close">关闭</button>
+						</div>
+					</div>
+					<!-- 对话框主体 -->
+					<div class="r_body"></div>
+					<!-- 发送框 -->
+					<div class="r_footer">
+						<div class="input-group">
+							<input type="text" class="form-control" id="content" />
+							<div class="input-group-btn">
+								<button class="btn btn-default send" type="button">发送</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!-- 对话框 e -->
+			</div>
+		</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#comunicate').fadeOut();
+		var count=0;
+		$('#f_list a').each(function(index){
+			$(this).click(function(){
+				var r_id=$('#f_list a').eq(index).attr('ruser'); //获取好友的ID
+				var hpot=$('#f_list a').eq(index).attr('hpot'); //获取好友的头像
+				var username=$('#f_list a').eq(index).html(); //获取好友的名称
+				$('#comunicate').fadeIn(); //显示对话框
+				$('#friend').html(username); //为对话框中头部赋值
+				/**
+				*利用ajax动态获取消息
+				*获得数据为json数据{"sucess":true,"msg":[{"me":true,"msg":"aaaaa"}]}
+				*sucess判断数据是否获取成功
+				*me为是否本人发的
+				*msg为数据内容
+				 */
+				$.post('msg.php',{ruser_id:r_id},function(result){
+					$('.r_body').html(''); //清空对话框
+					if(result.sucess){
+						var data=result.msg;
+						create(data,hpot);
+					}
+				},'json');
+				var n=++count;
+				$('.send').click(function(){
+					if(n!=count) return;
+					var sendData={act:"add",ruser_id:r_id,content:$('#content').val()};
+					$.post('msg.php',sendData,function(result){
+						$('.r_body').html(''); //清空对话框
+						if(result.sucess){
+							var data=result.msg;
+							create(data,hpot);
+							$('#content').val('');
+						}						
+					},'json');
+				});
+
+			});
+		});
+		$('#close').click(function(){
+			$('#comunicate').fadeOut();
+		})
+	});
+	/*
+	*拼接数据如以下HTML格式，将其添加到对话框中
+	<div class="user clearfix">
+		<div class="pot"><img src="view/img/g.jpg"/></div>
+		<div class="msg">
+			hhhhhhhhasdasdddddd dddddddddddd ddddq wsacda sd sd adwq dad dw dwqsad dw
+		</div>
+	</div>
+	*/	
+	function create(data,hpot){
+		for(var v in data){
+			if(data[v].me){
+				var $box=$('<div>').addClass('my clearfix').appendTo($('.r_body'));
+				var $pot=$('<div>').addClass('pot').appendTo($box);
+				var $hpot=$('<img>').attr("src",$('.hpot img')
+							.attr('src')).appendTo($pot);
+				var $msg=$('<div>').addClass('msg').appendTo($box);
+			}else{
+				var $box=$('<div>').addClass('user clearfix').appendTo($('.r_body'));
+				var $pot=$('<div>').addClass('pot').appendTo($box);
+				var $hpot=$('<img>').attr("src",hpot).appendTo($pot);
+				var $msg=$('<div>').addClass('msg').appendTo($box);									
+			}
+			$msg.html(data[v].msg);
+		}
+	}	
+		
+	</script>
+	</body>
+</html>
